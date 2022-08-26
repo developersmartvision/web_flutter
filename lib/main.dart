@@ -12,31 +12,25 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0;
-
-  void tekanTombol() {
-
-    setState(() {
-      number = number+1;
-    });
-  }
+  var message = "ini adalah texts";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Statefull widget Demo"),
+          title: Text("Anonymous Method"),
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(number.toString(),style: TextStyle(fontSize: 10+number.toDouble()),),
-              RaisedButton(
-                child: Text("Tambah Bilangan"),
-                onPressed: tekanTombol,
-              )
+              Text(message),
+              RaisedButton(child: Text("Tekan Saya"), onPressed: (){
+                setState(() {
+                  message = "Tombol Sudah di tekan";
+                });
+              })
             ],
           ),
         ),
